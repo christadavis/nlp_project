@@ -1,3 +1,6 @@
 streamlit
 spacy
+thinc
 newspaper3k
+pickle5
+lxml_html_clean
