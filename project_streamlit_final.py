@@ -16,10 +16,21 @@ model_path = "C:/Users/user/Downloads/model.pkl"
 # Load the NER model
 nlp = load_model(model_path)
 
+# Define custom colors for entities
+colors = {
+    "DISASTER": "#FFC0CB",   # Pink
+    "LOCATION": "#8da0cb",   # Blueish
+    "DATE": "#FFFF00",       # Yellow
+    "NUMBER": "#808080"      # Grey
+}
+
+# Create options for displaCy with custom colors
+options = {"colors": colors}
+
 # Function to extract NER
 def ner_analyser(text):
     doc = nlp(text)
-    ent_html = displacy.render(doc, style="ent", jupyter=False)
+    ent_html = displacy.render(doc, style="ent", options=options, jupyter=False)
     st.markdown(ent_html, unsafe_allow_html=True)
 
 # UI code
